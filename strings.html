@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    Name: Jennifer Schumacher
+    Description: Palindrome Checker with interactive elements and a great user experience.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <!-- Link to an external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Internal CSS for basic styling */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #4682b4;
+        }
+        .input-container {
+            margin: 20px 0;
+        }
+        .result {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Palindrome Checker</h1>
+    <!-- Container for input and result display -->
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="Enter a word or phrase">
+        <button onclick="checkPalindrome()">Check</button>
+    </div>
+    <!-- Display the result of palindrome check -->
+    <div class="result" id="result"></div>
+    <div class="buttons">
+        <!-- Button for user to continue -->
+        <button onclick="resetInput()">Try Another</button>
+    </div>
+    <!-- Add an image for visual appeal -->
+    <img src="https://i.ibb.co/dkyZrTJ/kayak-fishing-paddle-paddling-outdoor-recreation-aruba-6cf9c59ebc04c325678edfebd18e861a.png" alt="Palindrome Image" width="300">
+    <!-- JavaScript to handle the palindrome checking and user interaction -->
+    <script>
+        // Function to check if the input string is a palindrome
+        function checkPalindrome() {
+            // Get the user input
+            const input = document.getElementById('userInput').value;
+            // Remove spaces and convert to lower case for comparison
+            const cleanedInput = input.replace(/\s+/g, '').toLowerCase();
+            // Reverse the cleaned input
+            const reversedInput = cleanedInput.split('').reverse().join('');
+            // Check if the cleaned input is the same as the reversed input
+            if (cleanedInput === reversedInput) {
+                // If they are the same, it's a palindrome
+                document.getElementById('result').innerText = `"${input}" is a palindrome!`;
+            } else {
+                // If not, it's not a palindrome
+                document.getElementById('result').innerText = `"${input}" is not a palindrome.`;
+            }
+        }
+
+        // Function to reset the input field for another check
+        function resetInput() {
+            document.getElementById('userInput').value = '';
+            document.getElementById('result').innerText = '';
+        }
+    </script>
+</body>
+</html>
